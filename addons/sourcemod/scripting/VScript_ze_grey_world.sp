@@ -3,7 +3,7 @@
 
 #include <vscripts>
 
-#define MAP_NAME "ze_grey_world_css"
+#define MAP_NAME "ze_grey_world_css1"
 
 bool g_bValidMap = false;
 
