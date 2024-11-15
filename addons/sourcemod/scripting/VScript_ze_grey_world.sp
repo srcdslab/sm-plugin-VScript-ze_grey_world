@@ -3,8 +3,6 @@
 
 #include <vscripts>
 
-#define MAP_NAME "ze_grey_world_css"
-
 bool g_bValidMap = false;
 
 public Plugin myinfo =
@@ -39,7 +37,7 @@ public void OnMapStart()
 {
 	char sBuffer[256];
 	GetCurrentMap(sBuffer, sizeof(sBuffer));
-	g_bValidMap = (strcmp(sBuffer, MAP_NAME, false) == 0);
+	g_bValidMap = (strncmp(sBuffer, "ze_grey_world", 13) == 0);
 	if (g_bValidMap)
 	{
 		HookEvent("round_start", OnRoundStart, EventHookMode_PostNoCopy);
@@ -53,7 +51,8 @@ public void OnMapStart()
 
 public void OnMapEnd()
 {
-	if (g_bValidMap) UnhookEvent("round_start", OnRoundStart, EventHookMode_PostNoCopy);
+	if (g_bValidMap)
+		UnhookEvent("round_start", OnRoundStart, EventHookMode_PostNoCopy);
 	g_bValidMap = false;
 }
 
