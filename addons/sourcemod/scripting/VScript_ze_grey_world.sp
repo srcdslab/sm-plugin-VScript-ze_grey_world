@@ -53,7 +53,8 @@ public void OnMapStart()
 
 public void OnMapEnd()
 {
-	if (g_bValidMap) UnhookEvent("round_start", OnRoundStart, EventHookMode_PostNoCopy);
+	if (g_bValidMap)
+		UnhookEvent("round_start", OnRoundStart, EventHookMode_PostNoCopy);
 	g_bValidMap = false;
 }
 
